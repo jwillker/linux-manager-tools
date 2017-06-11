@@ -5,14 +5,15 @@
 #Work with centos or debian based.
 python -mplatform | grep -qi centos && DISTRO="centos" || DISTRO="debian"
 
-if [[ DISTRO == "centos" ]]; then
+if [[ $DISTRO == "centos" ]]; then
   echo "Install configs for centos based"
   sleep 2
   echo "..."
 
   yum -y update #Install Updates
   #Install dependencies
-  yum -y install zsh git vim wget mlocate epel-release htop
+  yum -y install zsh git vim wget mlocate epel-release \
+  yum-plugin-remove-with-leaves
   updatedb #update db for mlocate
   #Default shell
   echo "export SHELL=/bin/zsh
@@ -23,7 +24,7 @@ if [[ DISTRO == "centos" ]]; then
 
 fi
 
-if [[ DISTRO == "debian" ]]; then
+if [[ $DISTRO == "debian" ]]; then
   echo "Install configs for debian based"
   sleep 2
   echo "..."
