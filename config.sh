@@ -21,6 +21,7 @@ if [[ $DISTRO == "centos" ]]; then
   sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
   cd /home/$USER/
   wget https://raw.githubusercontent.com/JohnWillker/dotfiles/master/.vimrc
+  sed -i -e 's/^#\?ZSH_THEME="robbyrussell"/ZSH_THEME="candy"/g' ~/.zshrc
 
 fi
 
